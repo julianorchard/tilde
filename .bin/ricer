@@ -8,13 +8,20 @@
 -- Locations to add
 dot_locations={
   ".bin/ricer",
+  ".bin/sxiv.sh",
+  ".bin/zath.sh",
   ".config/X11/Xresources",
   ".config/X11/xinitrc",
   ".config/awesome/rc.lua",
   ".config/awesome/themes/blackburn",
+  ".config/kitty/kitty.conf",
+  ".config/lsd/config.yaml",
   ".config/nvim/init.lua",
   ".config/nvim/lua/plugins.lua",
   ".config/picom.conf",
+  ".config/sxiv/exec/image-info",
+  ".config/sxiv/exec/key-handler",
+  ".config/zathura/zathurarc",
   ".zshrc",
 }
 
