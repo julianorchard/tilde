@@ -5,30 +5,38 @@
 --  Tag Added:   2022-04-20
 --  Description: Sync the common dotfiles
 
+-- Locations to add
 dot_locations={
   ".bin/ricer",
+  ".config/X11/Xresources",
   ".config/X11/xinitrc",
   ".config/awesome/rc.lua",
   ".config/awesome/themes/blackburn",
   ".config/nvim/init.lua",
   ".config/nvim/lua/plugins.lua",
+  ".config/picom.conf",
   ".zshrc",
 }
 
+-- Location of bare repo
 repo_location="${HOME}/.config/.rice"
 
+-- If repo_location doesn't exist, initialize one
 if os.execute("[ ! -d '" .. repo_location .. "' ]") then
+
   -- Init Bare Repo
-  os.execute("/usr/bin/git init --bare /home/ju/.config/.rice/")
+  os.execute("/usr/bin/git init --bare " .. repo_location)
+
   -- Do Not Show Untracked Files
-  os.execute("/usr/bin/git --git-dir=${HOME}/.config/.rice/ " .. 
-             "--work-tree=${HOME} config --local " ..
-             "status.showUntrackedFiles no")
+  os.execute("/usr/bin/git --git-dir=" .. repo_location ..
+             " --work-tree=${HOME} config --local" ..
+             " status.showUntrackedFiles no")
 end 
 
+-- Git Add Files
 for i,l in ipairs(dot_locations) do 
-  os.execute("/usr/bin/git --git-dir=${HOME}/.config/.rice/ " .. 
-             "--work-tree=${HOME} add -f ${HOME}/" .. l)
+  os.execute("/usr/bin/git --git-dir=" .. repo_location ..
+             " --work-tree=${HOME} add -f ${HOME}/" .. l)
 end
 
 -- vim: ft=lua
