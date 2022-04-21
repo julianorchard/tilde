@@ -1,0 +1,34 @@
+#!/usr/bin/env lua
+
+--  File:        ricer
+--  Author:      Julian Orchard <hello@julianorchard.co.uk
+--  Tag Added:   2022-04-20
+--  Description: Sync the common dotfiles
+
+dot_locations={
+  ".bin/ricer",
+  ".config/X11/xinitrc",
+  ".config/awesome/rc.lua",
+  ".config/awesome/themes/blackburn",
+  ".config/nvim/init.lua",
+  ".config/nvim/lua/plugins.lua",
+  ".zshrc",
+}
+
+repo_location="${HOME}/.config/.rice"
+
+if os.execute("[ ! -d '" .. repo_location .. "' ]") then
+  -- Init Bare Repo
+  os.execute("/usr/bin/git init --bare /home/ju/.config/.rice/")
+  -- Do Not Show Untracked Files
+  os.execute("/usr/bin/git --git-dir=${HOME}/.config/.rice/ " .. 
+             "--work-tree=${HOME} config --local " ..
+             "status.showUntrackedFiles no")
+end 
+
+for i,l in ipairs(dot_locations) do 
+  os.execute("/usr/bin/git --git-dir=${HOME}/.config/.rice/ " .. 
+             "--work-tree=${HOME} add -f ${HOME}/" .. l)
+end
+
+-- vim: ft=lua
