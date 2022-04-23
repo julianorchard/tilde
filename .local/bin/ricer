@@ -1,0 +1,37 @@
+#!/usr/bin/env lua
+
+--  File:        ricer
+--  Author:      Julian Orchard <hello@julianorchard.co.uk
+--  Tag Added:   2022-04-20
+--  Description: Bare repo init'ing and dealing with README
+
+-- Location of bare repo
+repo_location="${HOME}/.config/.rice/"
+
+-- If repo_location doesn't exist, initialize one
+if os.execute("[ ! -d '" .. repo_location .. "' ]") then
+
+  -- Init Bare Repo
+  print("Initializing Bare Repo")
+  print(" -> Setting: Repo Path = " .. repo_location)
+  os.execute("/usr/bin/git init --bare " .. repo_location)
+
+  -- Do Not Show Untracked Files
+  print(" -> Setting: Do not show Untracked Files")
+  os.execute("/usr/bin/git --git-dir=" .. repo_location ..
+             " --work-tree=${HOME} config --local" ..
+             " status.showUntrackedFiles no")
+  print("")
+end 
+
+if os.execute("[ -f ${HOME}/README.md ]") then
+  print("Dealing with README.md")
+  print(" -> Setting: Assume README.md unchanged for commit")
+  os.execute("/usr/bin/git --git-dir=" .. repo_location ..
+             " --work-tree=${HOME} update-index --assume-unchanged" ..
+             " ${HOME}/README.md")
+  print(" -> Setting: Remove file README.md")
+  os.remove(os.getenv("HOME") .. "/README.md")
+end 
+
+-- vim: ft=lua
