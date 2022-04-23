@@ -5,6 +5,26 @@
 --  Tag Added:   2022-04-20
 --  Description: Bare repo init'ing and dealing with README
 
+-- Locations to add
+dot_locations={
+  ".bin/sxiv.sh",
+  ".bin/zath.sh",
+  ".config/X11/Xresources",
+  ".config/X11/xinitrc",
+  ".config/awesome/rc.lua",
+  ".config/awesome/themes/blackburn",
+  ".config/kitty/kitty.conf",
+  ".config/lsd/config.yaml",
+  ".config/nvim/init.lua",
+  ".config/nvim/lua/plugins.lua",
+  ".config/picom.conf",
+  ".config/sxiv/exec/image-info",
+  ".config/sxiv/exec/key-handler",
+  ".config/zathura/zathurarc",
+  ".local/bin/ricer",
+  ".zshrc",
+}
+
 -- Location of bare repo
 repo_location="${HOME}/.config/.rice/"
 
@@ -24,6 +44,7 @@ if os.execute("[ ! -d '" .. repo_location .. "' ]") then
   print("")
 end 
 
+-- README, dealing with
 if os.execute("[ -f ${HOME}/README.md ]") then
   print("Dealing with README.md")
   print(" -> Setting: Assume README.md unchanged for commit")
@@ -32,6 +53,18 @@ if os.execute("[ -f ${HOME}/README.md ]") then
              " ${HOME}/README.md")
   print(" -> Setting: Remove file README.md")
   os.remove(os.getenv("HOME") .. "/README.md")
+  print("")
 end 
+
+-- Git Add Files
+print("Adding Git Files")
+for i,l in ipairs(dot_locations) do 
+  if os.execute("[ -f " .. l .. " ]") then
+    os.execute("/usr/bin/git --git-dir=" .. repo_location ..
+               " --work-tree=${HOME} add -f ${HOME}/" .. l)
+  else
+    print(" -> Error: File " .. l .. " could not be git added")
+  end
+end
 
 -- vim: ft=lua
