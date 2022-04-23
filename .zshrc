@@ -92,5 +92,8 @@
   [ -x /usr/bin/sxiv ] && [ -z "${HOME}/.bin/sxiv.sh" ] && alias sxiv="${HOME}/.bin/sxiv/sh"
   [ -x /usr/bin/zathura ] && [ -z "${HOME}/.bin/zath.sh" ] && alias z="${HOME}/.bin/zath.sh"
 
+# PATH
+  export PATH=${PATH}:${HOME}/.local/bin/
+
 # StartX, (XDG_CONFIG_HOME Config)
   systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx ${HOME}/.config/X11/xinitrc

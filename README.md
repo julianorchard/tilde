@@ -1,4 +1,4 @@
-# ~
+# 〜 *<sub>this char isn't actually a tilde</sub>*
 
 > There's no place like ~
 
