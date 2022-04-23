@@ -1,4 +1,8 @@
-# 〜 *<sub>this char isn't actually a tilde</sub>*
+<div dir="rtl">
+*<sub><sup>this character isn't actually a tilde</sup></sub>*
+</div>
+
+# 〜
 
 > There's no place like ~
 
