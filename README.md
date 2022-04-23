@@ -1,8 +1,16 @@
+<!---------------------------------------------------------------------------->
+
 <div dir="rtl">
-*<sub><sup>this character isn't actually a tilde</sup></sub>*
+  <sub>
+    <sup>
+      <i>this character isn't actually a tilde</i>
+    </sup>
+  </sub>
 </div>
 
 # 〜
+
+<!---------------------------------------------------------------------------->
 
 > There's no place like ~
 
@@ -12,3 +20,5 @@ partly because it feels more 'complete' than BSPWM out of the box, and partly
 because I'm exploring Lua with Neovim, this time. 
 
 I use a bare repo to sync the dotfiles.
+
+<!---------------------------------------------------------------------------->
