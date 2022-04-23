@@ -23,6 +23,7 @@ dot_locations={
   ".config/sxiv/exec/key-handler",
   ".config/zathura/zathurarc",
   ".zshrc",
+  "README.md",
 }
 
 -- Location of bare repo
