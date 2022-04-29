@@ -21,6 +21,7 @@ dot_locations={
   ".config/sxiv/exec/image-info",
   ".config/sxiv/exec/key-handler",
   ".config/zathura/zathurarc",
+  ".emacs.d/init.el",
   ".local/bin/ricer",
   ".zshrc",
 }
