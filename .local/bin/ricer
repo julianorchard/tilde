@@ -12,7 +12,39 @@ dot_locations={
   ".config/X11/Xresources",
   ".config/X11/xinitrc",
   ".config/awesome/rc.lua",
-  ".config/awesome/themes/blackburn",
+  ".config/awesome/tilde/icons/awesome.png",
+  ".config/awesome/tilde/icons/dwindle.png",
+  ".config/awesome/tilde/icons/fairh.png",
+  ".config/awesome/tilde/icons/fairv.png",
+  ".config/awesome/tilde/icons/floating.png",
+  ".config/awesome/tilde/icons/magnifier.png",
+  ".config/awesome/tilde/icons/max.png",
+  ".config/awesome/tilde/icons/spiral.png",
+  ".config/awesome/tilde/icons/square_sel.png",
+  ".config/awesome/tilde/icons/square_unsel.png",
+  ".config/awesome/tilde/icons/submenu.png",
+  ".config/awesome/tilde/icons/tile.png",
+  ".config/awesome/tilde/icons/tilebottom.png",
+  ".config/awesome/tilde/icons/tileleft.png",
+  ".config/awesome/tilde/icons/tiletop.png",
+  ".config/awesome/tilde/icons/titlebar/close_focus.png",
+  ".config/awesome/tilde/icons/titlebar/close_normal.png",
+  ".config/awesome/tilde/icons/titlebar/floating_focus_active.png",
+  ".config/awesome/tilde/icons/titlebar/floating_normal_active.png",
+  ".config/awesome/tilde/icons/titlebar/floating_normal_inactive.png",
+  ".config/awesome/tilde/icons/titlebar/maximized_focus_active.png",
+  ".config/awesome/tilde/icons/titlebar/maximized_focus_inactive.png",
+  ".config/awesome/tilde/icons/titlebar/maximized_normal_active.png",
+  ".config/awesome/tilde/icons/titlebar/maximized_normal_inactive.png",
+  ".config/awesome/tilde/icons/titlebar/ontop_focus_active.png",
+  ".config/awesome/tilde/icons/titlebar/ontop_focus_inactive.png",
+  ".config/awesome/tilde/icons/titlebar/ontop_normal_active.png",
+  ".config/awesome/tilde/icons/titlebar/ontop_normal_inactive.png",
+  ".config/awesome/tilde/icons/titlebar/sticky_focus_active.png",
+  ".config/awesome/tilde/icons/titlebar/sticky_focus_inactive.png",
+  ".config/awesome/tilde/icons/titlebar/sticky_normal_active.png",
+  ".config/awesome/tilde/icons/titlebar/sticky_normal_inactive.png",
+  ".config/awesome/tilde/theme.lua",
   ".config/kitty/kitty.conf",
   ".config/lsd/config.yaml",
   ".config/nvim/init.lua",
@@ -30,7 +62,7 @@ dot_locations={
 repo_location="${HOME}/.config/.rice/"
 
 -- If repo_location doesn't exist, initialize one
-if os.execute("[ ! -d '" .. repo_location .. "' ]") then
+if os.execute("[ ! -d " .. repo_location .. " ]") then
 
   -- Init Bare Repo
   print("Initializing Bare Repo")
@@ -58,7 +90,7 @@ if os.execute("[ -f ${HOME}/README.md ]") then
 end 
 
 -- Git Add Files
-print("Adding Git Files")
+print("Adding Git Files...")
 for i,l in ipairs(dot_locations) do 
   if os.execute("[ -f " .. l .. " ]") then
     os.execute("/usr/bin/git --git-dir=" .. repo_location ..

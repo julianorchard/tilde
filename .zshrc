@@ -89,7 +89,7 @@
   [ -x /usr/bin/nvim ] && alias vim='nvim'
   [ -x /usr/bin/protonvpn ] && alias vpn="protonvpn"  
   [ -x /usr/bin/ranger ] && alias r="ranger"
-  [ -x /usr/bin/sxiv ] && [ -z "${HOME}/.bin/sxiv.sh" ] && alias sxiv="${HOME}/.bin/sxiv/sh"
+  [ -x /usr/bin/sxiv ] && [ -z "${HOME}/.bin/sxiv.sh" ] && alias sxiv="${HOME}/.bin/sxiv.sh"
   [ -x /usr/bin/zathura ] && [ -z "${HOME}/.bin/zath.sh" ] && alias z="${HOME}/.bin/zath.sh"
 
 # PATH

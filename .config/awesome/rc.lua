@@ -53,33 +53,26 @@
 
 -- Variables
 
-  -- Bin this eventually
-    local themes = {
-        "blackburn",       -- 1
-        "copland",         -- 2
-        "dremora",         -- 3
-        "holo",            -- 4
-        "multicolor",      -- 5
-        "powerarrow",      -- 6
-        "powerarrow-dark", -- 7
-        "rainbow",         -- 8
-        "steamburn",       -- 9
-        "vertex"           -- 10
-    }
-  -- Keys  
+   -- Keys  
     local altkey         = "Mod1"
     local modkey         = "Mod4"
   -- Applications
     local terminal       = "kitty"
     local browser        = os.getenv("BROWSER") or "firefox"
-    local editor         = os.getenv("EDITOR") or "vim"
-    local editor_cmd     = terminal .. " -e " .. "vim"
-  -- Questionable if I'll retain
-    -- beautiful.init(gears.filesystem.get_configuration_dir() .. "themes/tilde.lua")
-    local chosen_theme   = themes[1]
-    local cycle_prev     = true  -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
+    local editor         = os.getenv("EDITOR") or "nvim" or "vim"
+    local editor_cmd     = terminal .. " -e " .. "nvim" or terminal .. " -e " .. "vim"
+  -- Load Theme
+    beautiful.init(gears.filesystem.get_configuration_dir() .. "tilde/theme.lua")
+    --  local cycle_prev     = true  -- cycle with only the previously 
+    --  focused client or all https://github.com/lcpz/awesome-copycats/issues/274
   -- Tag Names
-    awful.util.tagnames = { "一", "二", "三", "四", "五" }
+    awful.util.tagnames = { 
+      "一", 
+      "二", 
+      "三", 
+      "四", 
+      "五" 
+    }
   -- Layouts + Order
     awful.layout.layouts = {
         awful.layout.suit.tile,
@@ -122,7 +115,7 @@ local tasklist_buttons = gears.table.join(
 )
 
 -- This is where they initialize the theme
-beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
+--beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 
 -- Create a wibox for each screen and add it?>?>??>
 awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
