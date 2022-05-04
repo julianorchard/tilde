@@ -14,8 +14,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/tilde"
-theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "URW Bookman 9"
+theme.wallpaper                                 = os.getenv("HOME") .. "/Images/makima.jpg"
+theme.font                                      = "Noto Sans 9"
 theme.taglist_font                              = "RobotoMono-Light 9"
 theme.fg_normal                                 = "#D7D7D7"
 theme.fg_focus                                  = "#AAFFFF"
@@ -70,8 +70,6 @@ theme.titlebar_maximized_button_normal_active   = theme.dir .. "/icons/titlebar/
 theme.titlebar_maximized_button_focus_inactive  = theme.dir .. "/icons/titlebar/maximized_focus_inactive.png"
 theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/maximized_normal_inactive.png"
 
-awful.util.tagnames   = { "ƀ", "Ƅ", "Ɗ", "ƈ", "ƙ" }
-
 local markup     = lain.util.markup
 local separators = lain.util.separators
 local gray       = "#9E9C9A"
@@ -84,7 +82,7 @@ mytextclock.font = theme.font
 theme.cal = lain.widget.cal({
     attach_to = { mytextclock },
     notification_preset = {
-        font = "Terminus 11",
+        font = "Noto Mono 9",
         fg   = theme.fg_normal,
         bg   = theme.bg_normal
     }
@@ -151,11 +149,15 @@ theme.fs = lain.widget.fs({
 
 -- Battery
 local bat = lain.widget.bat({
-    settings = function()
-        bat_header = " Bat "
-        bat_p      = bat_now.perc .. " "
-        widget:set_markup(markup.font(theme.font, markup(gray, bat_header) .. bat_p))
-    end
+  settings = function()
+    local b = tonumber(bat_now.perc)
+    -- if (b < 20) then
+    --   local bat_p = bat_now.perc .. "%    "
+    -- else
+    --   local bat_p = bat_now.perc .. "% kjnkjN"
+    -- end
+    widget:set_markup(markup.font(theme.font, b))
+  end
 })
 
 -- ALSA volume
@@ -188,11 +190,11 @@ theme.weather = lain.widget.weather({
 --]]
 
 -- Separators
-local first     = wibox.widget.textbox('<span font="Roboto 4"> </span>')
+local first     = wibox.widget.textbox('<span font="Roboto 10"> </span>')
 local arrl_pre  = separators.arrow_right("alpha", "#1A1A1A")
 local arrl_post = separators.arrow_right("#1A1A1A", "alpha")
 
-local barheight = dpi(30)
+local barheight = dpi(20)
 local barcolor  = gears.color({
     type  = "linear",
     from  = { barheight, 0 },
@@ -241,7 +243,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_normal = barcolor, bg_focus = barcolor })
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(30), bg = barcolor })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(20), bg = barcolor })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -250,9 +252,6 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             first,
             s.mytaglist,
-            arrl_pre,
-            s.mylayoutbox,
-            arrl_post,
             s.mypromptbox,
             first,
         },
@@ -261,7 +260,7 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             first,
-            theme.mpd.widget,
+            --theme.mpd.widget,
             --theme.mail.widget,
             --theme.weather.icon,
             --theme.weather.widget,
