@@ -31,5 +31,8 @@ xrdb -merge "$HOME"/.config/X11/Xresources
 #   unset f
 # fi
 
+# Udiskie
+[ -x /usr/bin/udiskie ] && udiskie &
+
 # Execute AwesomeWM
 exec awesome

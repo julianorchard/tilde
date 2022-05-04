@@ -17,18 +17,18 @@ theme.dir                                       = os.getenv("HOME") .. "/.config
 theme.wallpaper                                 = os.getenv("HOME") .. "/Images/makima.jpg"
 theme.font                                      = "Noto Sans 9"
 theme.taglist_font                              = "RobotoMono-Light 9"
-theme.fg_normal                                 = "#D7D7D7"
-theme.fg_focus                                  = "#AAFFFF"
-theme.bg_normal                                 = "#060606"
+theme.fg_normal                                 = "#888888"
+theme.fg_focus                                  = "#AAAAAA"
+theme.bg_normal                                 = "#000000"
 theme.bg_focus                                  = "#060606"
-theme.fg_urgent                                 = "#CC9393"
-theme.bg_urgent                                 = "#2A1F1E"
-theme.border_width                              = dpi(1)
+theme.fg_urgent                                 = "#FF0000"
+theme.bg_urgent                                 = "#000000"
+theme.border_width                              = dpi(0)
 theme.border_normal                             = "#0E0E0E"
-theme.border_focus                              = "#F79372"
-theme.taglist_fg_focus                          = "#F6784F"
-theme.taglist_bg_focus                          = "#060606"
-theme.tasklist_fg_focus                         = "#FFAAAA"
+theme.border_focus                              = "#FF7777"
+theme.taglist_fg_focus                          = "#FF7777"
+theme.taglist_bg_focus                          = "#222222"
+theme.tasklist_fg_focus                         = "#AAAAAA"
 theme.tasklist_bg_focus                         = "#060606"
 theme.menu_height                               = dpi(16)
 theme.menu_width                                = dpi(130)
@@ -72,7 +72,7 @@ theme.titlebar_maximized_button_normal_inactive = theme.dir .. "/icons/titlebar/
 
 local markup     = lain.util.markup
 local separators = lain.util.separators
-local gray       = "#9E9C9A"
+local gray       = "#D9D9D9"
 
 -- Textclock
 local mytextclock = wibox.widget.textclock(" %H:%M ")

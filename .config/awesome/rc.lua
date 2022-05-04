@@ -139,6 +139,12 @@ awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) 
       awful.key({ modkey, altkey, "Control" }, "h", hotkeys_popup.show_help,
                 {description="show help", group="awesome"}),
 
+    -- Unmount JUSB
+      awful.key({ modkey, altkey, "Control" }, "u", function() 
+        awful.util.spawn("udiskie-umount /run/media/ju/JUSB")
+      end,
+          {description = "pog", group="hotkeys"}),
+
     -- Screenshot, Screenshot Button
       awful.key({ }, "Print", function () 
         capture_folder = os.getenv("HOME") .. "/Images/captures/"
@@ -554,5 +560,6 @@ end)
 
   -- Picom
     awful.util.spawn("picom")
+    awful.util.spawn("udiskie")
 
 -- ---------------------------------------------------------
