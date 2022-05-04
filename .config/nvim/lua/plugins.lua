@@ -35,6 +35,9 @@ return require('packer').startup(
 ------ Vim Converted ------ ~
    -- Apperance
     use {
+      'ap/vim-css-color'
+    }
+    use {
       'flazz/vim-colorschemes'
     }
     use {
