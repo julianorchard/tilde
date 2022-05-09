@@ -7,6 +7,7 @@
 
 -- Locations to add
 dot_locations={
+  ".bin/multi-screen.sh",
   ".bin/sxiv.sh",
   ".bin/zath.sh",
   ".config/X11/Xresources",
